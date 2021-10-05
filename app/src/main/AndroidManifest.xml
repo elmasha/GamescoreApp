@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.marv.gamescores">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/gmlogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/gmlogo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Gamescores">
+        <activity android:name=".Activities.WebActivity"></activity>
+        <activity android:name=".Activities.ViewNewsActivity" />
+        <activity android:name=".Activities.DashboardActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

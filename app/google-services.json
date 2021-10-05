@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "250077256310",
+    "project_id": "gamescores-5be56",
+    "storage_bucket": "gamescores-5be56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250077256310:android:3430ca46945a8c5d7d1d57",
+        "android_client_info": {
+          "package_name": "com.marv.gamescores"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250077256310-1br7m4kra5s8a30usrqas3dslr2upbpa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marv.gamescores",
+            "certificate_hash": "785fe5cdd935a518363e1189523ff8efca501580"
+          }
+        },
+        {
+          "client_id": "250077256310-lb9a1f1r76h42670t0v7ocq36lhosvq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI_0ncVHOpi5gXsS4KzbA5a-nk1jhAowc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250077256310-lb9a1f1r76h42670t0v7ocq36lhosvq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
