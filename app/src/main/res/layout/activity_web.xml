@@ -1,15 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.WebActivity">
-
-
-    <WebView
-        android:id="@+id/activity_web_wv"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</androidx.recyclerview.widget.RecyclerView>
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/layout_logo"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="8dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:src="@drawable/gm"
+                    android:layout_height="50dp"/>
+
+
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/home_profileImage"
+                android:layout_width="40dp"
+                android:gravity="end"
+                android:src="@drawable/profile"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="40dp"/>
+
+
+
+
+
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/view_action"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_home"
+                    android:layout_width="wrap_content"
+                    app:fab_size="mini"
+                    app:fab_icon="@drawable/ic_home"
+                    app:fab_colorPressed="@color/secondary"
+                    app:fab_colorNormal="@color/primary"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_saveOther"
+                android:layout_width="wrap_content"
+                app:fab_size="mini"
+                app:fab_colorPressed="@color/secondary"
+                app:fab_colorNormal="@color/primary"
+                app:fab_icon="@drawable/ic_save"
+                android:layout_height="wrap_content"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_shareOther"
+                android:layout_width="wrap_content"
+                app:fab_size="mini"
+                app:fab_colorPressed="@color/secondary"
+                app:fab_icon="@drawable/ic_share"
+                app:fab_colorNormal="@color/primary"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+        <WebView
+            android:id="@+id/activity_web_wv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

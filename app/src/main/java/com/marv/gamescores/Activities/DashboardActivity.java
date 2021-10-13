@@ -8,21 +8,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.marv.gamescores.Fragments.AllNewsFragment;
 import com.marv.gamescores.Fragments.OtherNewsFragment;
 import com.marv.gamescores.Fragments.PredictionFragment;
 import com.marv.gamescores.Fragments.SavedFragment;
 import com.marv.gamescores.R;
+import com.squareup.picasso.Picasso;
+
+import javax.annotation.Nullable;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DashboardActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     private TextView stories,predictions,otherNews;
+    private LinearLayout linearLayout;
+    private CircleImageView homeProfile;
+    private String UserImage;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference newsRef = db.collection("Stories");
+    CollectionReference predictionsRef = db.collection("Predictions");
+    CollectionReference UsersRef = db.collection("Gamescores_users");
 
 
 
@@ -36,10 +54,12 @@ public class DashboardActivity extends AppCompatActivity {
                         case R.id.navigation_home:
 
                             SelectedFragment = new AllNewsFragment();
+                            linearLayout.setVisibility(View.VISIBLE);
                             break;
                         case R.id.navigation_save:
 
                             SelectedFragment = new SavedFragment();
+                            linearLayout.setVisibility(View.GONE);
                             break;
 
 
@@ -57,6 +77,8 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashbord);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mAuth = FirebaseAuth.getInstance();
+        linearLayout = findViewById(R.id.layout_category);
+        homeProfile = findViewById(R.id.home_profileImage);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new
                 AllNewsFragment()).commit();
@@ -108,6 +130,36 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
+
+    void LoadDetails(){
+        UsersRef.document(mAuth.getCurrentUser().getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null){
+                    return ;
+                }
+
+                UserImage = documentSnapshot.getString("UserImage");
+                if (UserImage != null) {
+                    Picasso.get().load(UserImage).fit().into(homeProfile);
+                }
+
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser().getUid() != null){
+            LoadDetails();
+        }else {
+
+        }
+    }
+
     private long backPressedTime;
     private Toast backToast;
     @Override
@@ -124,6 +176,7 @@ public class DashboardActivity extends AppCompatActivity {
         } else {
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new
                     AllNewsFragment()).commit();
+            linearLayout.setVisibility(View.VISIBLE);
 //            layoutCategory.setVisibility(View.VISIBLE);
 //            mInterstitialAd.setAdListener(new AdListener() {
 //                public void onAdLoaded() {

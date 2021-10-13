@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +36,7 @@ View root;
 
     private RecyclerView mRecyclerView;
     MainArticleAdapter articleAdapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     public OtherNewsFragment() {
@@ -47,9 +51,34 @@ View root;
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_other_news, container, false);
         mRecyclerView = root.findViewById(R.id.activity_main_rv);
+        swipeRefreshLayout = root.findViewById(R.id.swipeOtherNews);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                LoadNews();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
+
+            }
+        });
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
+
+
+        LoadNews();
+
+
+        return root;
+    }
+
+    private void LoadNews() {
 
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseModel> call = apiService.getLatestNews("sports","en",getString(R.string.news_api_key));
@@ -60,8 +89,21 @@ View root;
                     List<Article> articleList = response.body().getArticles();
                     if(articleList.size()>0) {
                         final MainArticleAdapter mainArticleAdapter = new MainArticleAdapter(articleList);
-
-
+                        mainArticleAdapter.setOnRecyclerViewItemClickListener(new OnRecyclerViewItemClickListener() {
+                            @Override
+                            public void onRecyclerViewItemClicked(int position, View view) {
+                                switch (view.getId()) {
+                                    case R.id.article_adapter_ll_parent:
+                                        Article article = (Article) view.getTag();
+                                        if(!TextUtils.isEmpty(article.getUrl())) {
+                                            Intent webActivity = new Intent(getContext(), WebActivity.class);
+                                            webActivity.putExtra("url", article.getUrl());
+                                            startActivity(webActivity);
+                                        }
+                                        break;
+                                }
+                            }
+                        });
 
                         mRecyclerView.setAdapter(mainArticleAdapter);
                     }
@@ -76,22 +118,22 @@ View root;
 
 
 
-
-
-
-
-        return root;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        LoadNews();
+    }
 
     @Override
     public void onRecyclerViewItemClicked(int position, View view) {
         switch (view.getId()) {
             case R.id.article_date:
-                String tag = (String) view.getTag();
-                if (!TextUtils.isEmpty(tag)) {
+                Article article = (Article) view.getTag();
+                if(!TextUtils.isEmpty(article.getUrl())) {
                     Intent webActivity = new Intent(getContext(), WebActivity.class);
-                    webActivity.putExtra("url", tag);
+                    webActivity.putExtra("url", article.getUrl());
                     startActivity(webActivity);
                 }
                 break;

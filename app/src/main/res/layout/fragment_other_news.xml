@@ -6,11 +6,20 @@
     tools:context=".Fragments.OtherNewsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activity_main_rv"
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeOtherNews"
+        android:layout_marginBottom="70dp"
         android:layout_width="match_parent"
-        android:layout_marginBottom="60dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_main_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 </RelativeLayout>

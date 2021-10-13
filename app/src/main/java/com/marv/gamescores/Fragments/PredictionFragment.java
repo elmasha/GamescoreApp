@@ -6,7 +6,9 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +42,7 @@ View root;
     private String Doc_Id,Doc_Id2;
     private RecyclerView mRecyclerView;
     private PredictionAdapter adapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public PredictionFragment() {
         // Required empty public constructor
@@ -52,6 +55,21 @@ View root;
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_prediction, container, false);
         mRecyclerView = root.findViewById(R.id.recycler_predictions);
+        swipeRefreshLayout = root.findViewById(R.id.swipePrediction);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                FetchLatestNews();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
+
+            }
+        });
 
         FetchLatestNews();
         return root;

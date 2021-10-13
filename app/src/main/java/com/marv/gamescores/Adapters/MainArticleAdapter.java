@@ -50,9 +50,8 @@ public class MainArticleAdapter extends RecyclerView.Adapter<MainArticleAdapter.
             viewHolder.descriptionText.setText(articleModel.getDescription());
         }
         Picasso.get().load(articleModel.getUrlToImage()).fit().into(viewHolder.article_image);
-        viewHolder.artilceAdapterParentLinear.setTag(articleModel.getUrl());
+        viewHolder.artilceAdapterParentLinear.setTag(articleModel);
         viewHolder.date.setText(articleModel.getUrl());
-
 
     }
 

@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="180dp"
     android:layout_margin="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:layout_width="180dp"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
-
 
             <ImageView
                 android:id="@+id/row_image"
-                android:layout_width="140dp"
+                android:layout_width="160dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="140dp"/>
 
 
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             >
 
             <TextView
                 android:id="@+id/row_headline"
-                android:layout_width="240dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Headlines"
-                android:maxLines="1"
+                android:maxLines="2"
+                android:minLines="2"
                 android:textStyle="bold"
                 android:ellipsize="end"
                 android:textColor="@color/primary"
@@ -37,7 +39,7 @@
                 />
             <TextView
                 android:id="@+id/row_story"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="story"
                 android:maxLines="2"
@@ -98,20 +100,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/row_date"
-                android:text="01/10/2021"
-                android:textSize="15dp"
+                android:text=""
+                android:textSize="16dp"
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/news_date"
                 android:text="Read more"
                 android:textColor="@color/secondary"
                 android:textSize="14dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_margin="8dp"
                 android:drawableRight="@drawable/ic_arrow"
                 android:drawableTint="@color/secondary"
                 android:layout_gravity="right"

@@ -57,6 +57,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:17.0.1'
     //---FirebaseAuth
     implementation 'com.google.firebase:firebase-auth:15.0.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
     //FireBase
     implementation 'com.google.firebase:firebase-storage:16.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.3'

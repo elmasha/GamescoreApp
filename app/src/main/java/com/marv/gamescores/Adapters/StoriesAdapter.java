@@ -65,30 +65,14 @@ public class StoriesAdapter extends FirestoreRecyclerAdapter<Stories, StoriesAda
 //        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
         holder.date.setText(getTimeAgo(milisecond)+"");
 
-//        if(model.getViewsCount() >= 1000){
-//            double div = model.getViewsCount() /1000;
-//            DecimalFormat precision = new DecimalFormat("0.0");
-//            holder.views.setText(precision.format(div)+"K ");
-//        }else if(model.getLikesCount() >= 1000) {
-//            double divlike = model.getLikesCount() /1000;
-//            DecimalFormat precision = new DecimalFormat("0.0");
-//            holder.likes.setText(precision.format(divlike)+"K ");
-//        }else if (model.getCommentCount() >=1000){
-//            double divcomment = model.getCommentCount() /1000;
-//            DecimalFormat precision = new DecimalFormat("0.0");
-//            holder.comment.setText(precision.format(divcomment)+"K ");
-//        }else {
-//            holder.views.setText(model.getViewsCount()+"");
-//            holder.comment.setText(model.getCommentCount()+"");
-//            holder.likes.setText(model.getLikesCount()+"");
-//        }
+
 
     }
 
     @NonNull
     @Override
     public StoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.story_row,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_row,parent,false);
 
         return new StoriesViewHolder(v);
     }
