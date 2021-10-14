@@ -76,7 +76,7 @@ View root;
         // getting data from our collection and after
         // that calling a method for on success listener.
         newsRef.orderBy("timestamp", Query.Direction.DESCENDING)
-                .limit(6)
+                .limit(8)
                 .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -195,4 +195,9 @@ View root;
     //...end fetch..
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        FetchLatestNews();
+    }
 }

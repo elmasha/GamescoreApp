@@ -153,11 +153,18 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (mAuth.getCurrentUser().getUid() != null){
-            LoadDetails();
+        if (mAuth.getCurrentUser() != null){
+
+            if (mAuth.getCurrentUser().getUid() != null){
+                LoadDetails();
+            }else {
+
+            }
+
         }else {
 
         }
+
     }
 
     private long backPressedTime;

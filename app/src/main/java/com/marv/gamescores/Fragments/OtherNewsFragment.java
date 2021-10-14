@@ -98,6 +98,9 @@ View root;
                                         if(!TextUtils.isEmpty(article.getUrl())) {
                                             Intent webActivity = new Intent(getContext(), WebActivity.class);
                                             webActivity.putExtra("url", article.getUrl());
+                                            webActivity.putExtra("title", article.getTitle());
+                                            webActivity.putExtra("image", article.getUrlToImage());
+                                            webActivity.putExtra("description", article.getDescription());
                                             startActivity(webActivity);
                                         }
                                         break;

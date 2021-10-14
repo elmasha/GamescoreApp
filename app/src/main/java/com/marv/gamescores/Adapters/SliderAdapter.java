@@ -52,7 +52,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
     public void onBindViewHolder(SliderAdapterVH viewHolder, int position) {
         final Stories sliderItem = mSliderItems.get(position);
         viewHolder.headline.setText(sliderItem.getTitle());
-//        viewHolder.stories.setText(sliderItem.getDoc_ID());
+        viewHolder.stories.setText(sliderItem.getDoc_ID());
         long milisec =sliderItem.getTimestamp().getTime();
         viewHolder.date.setText(getTimeAgo(milisec));
         Picasso.get().load(sliderItem.getImage()).fit().into(viewHolder.imageView);
@@ -129,7 +129,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 //            comment = itemView.findViewById(R.id.latest_view_comment);
 //            category = itemView.findViewById(R.id.latest_view_category);
 //            viewsCount = itemView.findViewById(R.id.latest_view_views);
-//            stories = itemView.findViewById(R.id.news_story);
+            stories = itemView.findViewById(R.id.news_story);
               date = itemView.findViewById(R.id.slider_time);
             this.itemView = itemView;
         }

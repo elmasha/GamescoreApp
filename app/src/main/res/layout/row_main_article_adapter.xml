@@ -58,12 +58,12 @@
             <TextView
                 android:id="@+id/article_adapter_tv_description"
                 android:layout_width="160dp"
-                android:maxLines="3"
-                android:minLines="2"
+                android:maxLines="4"
+                android:minLines="3"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:layout_marginTop="6dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/blackGrey"/>
         </LinearLayout>
 
         <TextView

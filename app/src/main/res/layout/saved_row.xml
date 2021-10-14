@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="170dp"
+    android:layout_width="match_parent"
     android:layout_margin="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
 
             <ImageView
-                android:id="@+id/row_image"
+                android:id="@+id/row_image2"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="140dp"
-                android:layout_height="140dp"/>
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
 
 
         <LinearLayout
@@ -26,24 +26,24 @@
             >
 
             <TextView
-                android:id="@+id/row_headline"
-                android:layout_width="160dp"
+                android:id="@+id/row_headline2"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:text="Headlines"
-                android:maxLines="4"
-                android:minLines="3"
+                android:maxLines="3"
+                android:minLines="2"
                 android:textStyle="bold"
                 android:ellipsize="end"
                 android:textColor="@color/primary"
                 android:textSize="19dp"
                 />
             <TextView
-                android:id="@+id/row_story"
-                android:layout_width="160dp"
+                android:id="@+id/row_story2"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:text="story"
                 android:maxLines="3"
-                android:minLines="2"
+                android:minLines="1"
                 android:ellipsize="end"
                 android:textColor="@color/blackGrey"
                 android:textSize="15dp"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/row_comment"
+                        android:id="@+id/row_comment2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" 0 "
@@ -71,7 +71,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/row_likes"
+                        android:id="@+id/row_likes2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" 0 "
@@ -81,7 +81,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/row_views"
+                        android:id="@+id/row_views2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" 0 "
@@ -99,7 +99,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:id="@+id/row_date"
+                android:id="@+id/row_date2"
                 android:text="01/10/2021"
                 android:textSize="15dp"
                 android:textColor="@color/black"
@@ -108,7 +108,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:id="@+id/news_date"
+                android:id="@+id/news_date2"
                 android:text="Read more"
                 android:textColor="@color/secondary"
                 android:textSize="14dp"

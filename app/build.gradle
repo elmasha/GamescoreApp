@@ -53,6 +53,13 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
 
+    //cropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
+
+    //--compressor
+    implementation 'id.zelory:compressor:2.1.0'
+
+
     //--- FirebaseDatabase
     implementation 'com.google.firebase:firebase-firestore:17.0.1'
     //---FirebaseAuth
@@ -75,4 +82,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 
+}
+
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+
+    }
 }

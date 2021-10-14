@@ -277,6 +277,13 @@
                                         android:textColor="@color/blackGrey"
                                         android:textSize="17dp" />
 
+                                    <ImageView
+                                        android:id="@+id/image2"
+                                        android:layout_width="360dp"
+                                        android:layout_margin="0dp"
+                                        android:visibility="gone"
+                                        android:layout_height="250dp"/>
+
 
                                     <TextView
                                         android:id="@+id/sub_heading"
@@ -305,6 +312,14 @@
                                         android:textColor="@color/blackGrey"
                                         android:textSize="17dp" />
 
+
+                                    <ImageView
+                                        android:id="@+id/image3"
+                                        android:layout_width="360dp"
+                                        android:layout_margin="0dp"
+                                        android:visibility="gone"
+                                        android:layout_height="250dp"/>
+
                                     <TextView
                                         android:id="@+id/sub_heading2"
                                         android:layout_width="300dp"
@@ -331,6 +346,14 @@
                                         android:text=""
                                         android:textColor="@color/blackGrey"
                                         android:textSize="17dp" />
+
+
+                                    <ImageView
+                                        android:id="@+id/image4"
+                                        android:layout_width="360dp"
+                                        android:layout_margin="0dp"
+                                        android:visibility="gone"
+                                        android:layout_height="250dp"/>
 
                                     <TextView
                                         android:id="@+id/sub_heading3"
@@ -419,6 +442,7 @@
                             android:id="@+id/commentss"
                             android:text="Comments"
                             android:textSize="17dp"
+                            android:visibility="gone"
                             android:textColor="@color/primary"
                             android:layout_marginStart="10dp"
                             android:layout_width="wrap_content"
@@ -431,6 +455,7 @@
                             android:id="@+id/commentView_Recycler"
                             android:layout_width="match_parent"
                             android:padding="8dp"
+                            android:visibility="gone"
                             android:layout_marginBottom="8dp"
                             android:layout_height="300dp"/>
 

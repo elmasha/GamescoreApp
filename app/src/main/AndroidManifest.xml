@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gamescores">
         <activity android:name=".Activities.WebActivity"></activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".Activities.ViewNewsActivity" />
         <activity android:name=".Activities.DashboardActivity" />
         <activity android:name=".MainActivity">
