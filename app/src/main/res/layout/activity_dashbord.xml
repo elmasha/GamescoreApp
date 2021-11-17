@@ -31,12 +31,12 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/home_profileImage"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:gravity="end"
             android:src="@drawable/profile"
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
-            android:layout_height="60dp"/>
+            android:layout_height="50dp"/>
 
 
 

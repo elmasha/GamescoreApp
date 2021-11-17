@@ -51,6 +51,7 @@ public class StoriesAdapter extends FirestoreRecyclerAdapter<Stories, StoriesAda
         holder.headline.setText(model.getTitle());
         holder.story.setText(model.getStory());
         Picasso.get().load(model.getImage()).fit().into(holder.homeNewsImage);
+        holder.likes.setText(model.getLike()+"");
 
         String subtt = model.getSubtitle();
         if (subtt == null){

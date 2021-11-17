@@ -41,29 +41,70 @@
                         app:fab_colorNormal="@color/primary"
                         android:layout_height="wrap_content"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Home"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"/>
 
 
                 </LinearLayout>
 
 
 
-                <com.getbase.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab_saveOther"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    app:fab_size="mini"
-                    app:fab_colorPressed="@color/secondary"
-                    app:fab_colorNormal="@color/primary"
-                    app:fab_icon="@drawable/ic_save"
-                    android:layout_height="wrap_content"/>
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
 
-                <com.getbase.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab_shareOther"
+                    <com.getbase.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fab_saveOther"
+                        android:layout_width="wrap_content"
+                        app:fab_size="mini"
+                        app:fab_colorPressed="@color/secondary"
+                        app:fab_colorNormal="@color/primary"
+                        app:fab_icon="@drawable/ic_save"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Save"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    app:fab_size="mini"
-                    app:fab_colorPressed="@color/secondary"
-                    app:fab_icon="@drawable/ic_share"
-                    app:fab_colorNormal="@color/primary"
-                    android:layout_height="wrap_content"/>
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <com.getbase.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fab_shareOther"
+                        android:layout_width="wrap_content"
+                        app:fab_size="mini"
+                        app:fab_colorPressed="@color/secondary"
+                        app:fab_icon="@drawable/ic_share"
+                        app:fab_colorNormal="@color/primary"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Share"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
 
 
             </LinearLayout>

@@ -3,4 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="news_api_key">6c9865edf6224bb3813f745119fe94fb</string>
+
+
+    <string name="adBunner_ID">ca-app-pub-9536056765018224/6148342549</string>
+
 </resources>

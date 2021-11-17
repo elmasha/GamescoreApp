@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context=".Activities.ViewNewsActivity">
 
     <RelativeLayout
@@ -13,7 +14,7 @@
         <ImageView
             android:id="@+id/view_image"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="330dp"
             />
     </RelativeLayout>
 
@@ -43,7 +44,8 @@
                 android:layout_width="match_parent"
                 android:ellipsize="end"
                 android:padding="8dp"
-                android:maxLines="1"
+                android:maxLines="2"
+                android:minLines="1"
                 android:layout_marginTop="270dp"
                 android:text="Headline"
                 android:textColor="@color/white"
@@ -70,15 +72,15 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-<!--                        <com.google.android.gms.ads.AdView-->
-<!--                            android:id="@+id/adView2"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center_horizontal"-->
-<!--                            android:layout_alignParentBottom="true"-->
-<!--                            ads:adSize="BANNER"-->
-<!--                            ads:adUnitId="@string/ad_ID">-->
-<!--                        </com.google.android.gms.ads.AdView>-->
+                        <com.google.android.gms.ads.AdView
+                            android:id="@+id/adView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_alignParentBottom="true"
+                            ads:adSize="BANNER"
+                            ads:adUnitId="@string/adBunner_ID">
+                        </com.google.android.gms.ads.AdView>
 
 
                         <LinearLayout
@@ -118,6 +120,7 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:orientation="vertical"
+                                android:visibility="gone"
                                 android:layout_height="wrap_content">
 
                                 <com.getbase.floatingactionbutton.FloatingActionButton
@@ -145,6 +148,7 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:visibility="gone"
                                 android:orientation="vertical">
 
                                 <com.getbase.floatingactionbutton.FloatingActionButton

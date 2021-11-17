@@ -69,7 +69,7 @@ public class PredictionAdapter extends FirestoreRecyclerAdapter<Stories, Predict
 //        }else if(model.getLikesCount() >= 1000) {
 //            double divlike = model.getLikesCount() /1000;
 //            DecimalFormat precision = new DecimalFormat("0.0");
-//            holder.likes.setText(precision.format(divlike)+"K ");
+            holder.likes.setText(model.getLike()+"");
 //        }else if (model.getCommentCount() >=1000){
 //            double divcomment = model.getCommentCount() /1000;
 //            DecimalFormat precision = new DecimalFormat("0.0");

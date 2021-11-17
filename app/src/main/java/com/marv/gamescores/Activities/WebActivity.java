@@ -39,6 +39,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.marv.gamescores.BuildConfig;
 import com.marv.gamescores.R;
 import com.squareup.picasso.Picasso;
 
@@ -106,8 +107,27 @@ public class WebActivity extends AppCompatActivity {
         });
 
 
+        shareNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareNews();
+            }
+        });
+
+
 
         configureGoogleClient();
+
+    }
+
+    private void ShareNews() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Gamescore");
+        String shareMessage;
+        shareMessage = url+title + BuildConfig.APPLICATION_ID +"\n";
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+        startActivity(Intent.createChooser(shareIntent, "Share using"));
 
     }
 

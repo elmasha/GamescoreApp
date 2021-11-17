@@ -58,6 +58,7 @@ import com.google.firebase.firestore.Transaction;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.marv.gamescores.BuildConfig;
 import com.marv.gamescores.Models.Stories;
 import com.marv.gamescores.R;
 import com.squareup.picasso.Picasso;
@@ -105,6 +106,13 @@ public class ViewNewsActivity extends AppCompatActivity {
     private String[] permissions;
     private int[] grantResults;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LoadDetails();
+        LoadDetailsPre();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,7 +162,7 @@ public class ViewNewsActivity extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ShareNews();
             }
         });
 
@@ -228,6 +236,17 @@ public class ViewNewsActivity extends AppCompatActivity {
         configureGoogleClient();
     }
 
+    private void ShareNews() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Gamescore");
+        String shareMessage= Title;
+        shareMessage = "https://gamescores.co.ke/"+Title + BuildConfig.APPLICATION_ID +"\n";
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+        startActivity(Intent.createChooser(shareIntent, "Share using"));
+
+    }
+
     private void LikeCounter() {
 
         if (categories.equals("News")){
@@ -256,7 +275,7 @@ public class ViewNewsActivity extends AppCompatActivity {
                     }
                 }
             });
-        }else if (categories2.equals("Sponsored")){
+        }else if (categories.equals("Sponsored")){
 
             final DocumentReference sfDocRef2 = db.collection("Predictions").document(Doc_Id);
             db.runTransaction(new Transaction.Function<Void>() {
@@ -600,6 +619,7 @@ public class ViewNewsActivity extends AppCompatActivity {
                         image3 = mynews.getImage3();
                         image4 = mynews.getImage4();
                         story_ID = mynews.getDoc_ID();
+                        likie = mynews.getLike();
 
 
                         if (image2== null){
@@ -747,8 +767,8 @@ public class ViewNewsActivity extends AppCompatActivity {
                         headings3 = mynews.getSubheading3();
                         headings4 = mynews.getSubheading4();
                         news_imaged = mynews.getImage();
-                        categories2= mynews.getCategory();
-//                        likie = mynews.getLikesCount();
+                        categories= mynews.getCategory();
+                        likie = mynews.getLike();
 //                        commentie = mynews.getCommentCount();
 //                        views = mynews.getViewsCount();
                         //story_ID = mynews.getDoc_ID();
@@ -770,7 +790,7 @@ public class ViewNewsActivity extends AppCompatActivity {
                         Story4.setText(stories4);
                         Story.setMovementMethod(new ScrollingMovementMethod());
                         title.setText(Title);
-//                        likeCount.setText(likie+"");
+                        likeCount.setText(likie+"");
 //                        commentCount.setText(commentie+"");
 //                        viewsCount.setText(views+"");
 

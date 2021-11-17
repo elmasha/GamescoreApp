@@ -53,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:orientation="horizontal"
                 android:layout_margin="8dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
@@ -102,9 +103,9 @@
                 android:id="@+id/row_date2"
                 android:text="01/10/2021"
                 android:textSize="15dp"
-                android:textColor="@color/black"
+                android:textColor="@color/primary"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
